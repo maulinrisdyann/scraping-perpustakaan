@@ -15,15 +15,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        User::updateOrCreate(
-            ['email' => 'admin@gmail.com'],
-            [
-                'name' => 'Super Admin',
-                'password' => 'password',
-                'role' => 'superadmin',
-                'email_verified_at' => now(),
-            ]
-        );
+        
 
         $this->call([
             SourceSeeder::class,
