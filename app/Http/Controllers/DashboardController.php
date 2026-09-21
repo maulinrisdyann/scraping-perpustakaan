@@ -2,11 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\AutomationSetting;
 use App\Models\Complaint;
 use App\Models\Review;
 use App\Models\Source;
-use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -14,7 +12,6 @@ class DashboardController extends Controller
 {
     public function overview()
     {
-        $automationEnabled = AutomationSetting::isEnabled();
         $totalReviews = Review::count();
         $avgRating = Review::whereNotNull('rating')->avg('rating');
         $pendingComplaints = Complaint::where('status', 'belum_dibalas')->count();
@@ -35,7 +32,6 @@ class DashboardController extends Controller
             ->get();
 
         return view('dashboard.overview', [
-            'automationEnabled' => $automationEnabled,
             'totalReviews' => $totalReviews,
             'avgRating' => $avgRating,
             'pendingComplaints' => $pendingComplaints,
@@ -44,19 +40,5 @@ class DashboardController extends Controller
             'bySource' => $bySource,
             'recentReviews' => $recentReviews,
         ]);
-    }
-
-    public function toggleAutomation(Request $request): RedirectResponse
-    {
-        abort_unless($request->user(), 403);
-
-        $automationEnabled = AutomationSetting::toggle();
-
-        return redirect()->route('dashboard.overview')->with(
-            'status',
-            $automationEnabled
-                ? 'Automatisasi scraping berhasil diaktifkan.'
-                : 'Automatisasi scraping berhasil dinonaktifkan.'
-        );
     }
 }

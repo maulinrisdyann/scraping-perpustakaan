@@ -12,28 +12,6 @@
         </div>
     @endif
 
-    <div class="glass rounded-none p-6 fade-slide-in" style="animation-delay: 80ms">
-        <div class="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-            <div>
-                <h2 class="font-display font-semibold text-lg mb-1">Otomatisasi Scraping</h2>
-                <p class="text-sm {{ $automationEnabled ? 'text-success' : 'text-txsecondary' }}">
-                    <span class="font-medium">Status: {{ $automationEnabled ? 'AKTIF' : 'NONAKTIF' }}</span>
-                </p>
-                <p class="text-sm text-txsecondary mt-1">
-                    {{ $automationEnabled ? 'Scheduler otomatis berjalan sesuai jadwal.' : 'Scheduler otomatis sedang dihentikan sementara.' }}
-                </p>
-            </div>
-
-            <form method="POST" action="{{ route('dashboard.automation.toggle') }}">
-                @csrf
-                @method('PATCH')
-                <button type="submit" class="rounded-xl px-5 py-2.5 text-sm font-medium transition-colors {{ $automationEnabled ? 'bg-violet text-bg hover:bg-violet/90' : 'bg-slate-700 text-white hover:bg-slate-600 dark:bg-white/10 dark:hover:bg-white/15 dark:text-white' }}">
-                    {{ $automationEnabled ? 'Matikan Otomatisasi' : 'Aktifkan Otomatisasi' }}
-                </button>
-            </form>
-        </div>
-    </div>
-
     {{-- Grid statistik --}}
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
         <div class="glass rounded-none p-5 glow-hover fade-slide-in" style="animation-delay: 0ms">

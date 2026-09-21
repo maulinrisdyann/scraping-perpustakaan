@@ -26,7 +26,6 @@ Route::middleware('auth')->group(function () {
     Route::redirect('/', '/dashboard');
 
     Route::get('/dashboard', [DashboardController::class, 'overview'])->name('dashboard.overview');
-    Route::patch('/dashboard/automation/toggle', [DashboardController::class, 'toggleAutomation'])->name('dashboard.automation.toggle');
     Route::get('/ulasan', [ReviewController::class, 'index'])->name('reviews.index');
     Route::post('/ulasan/monggo-lapor', [ReviewController::class, 'storeMonggoLapor'])->name('reviews.monggo-lapor.store');
 
