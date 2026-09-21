@@ -1,0 +1,4 @@
+playwright==1.55.0
+SQLAlchemy==2.0.43
+mysql-connector-python==9.1.0
+python-dotenv==1.0.1
