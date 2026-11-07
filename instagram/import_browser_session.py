@@ -1,26 +1,4 @@
-"""
-Alternatif login_setup.py: import cookie langsung dari browser yang sudah
-login ke Instagram, bukan login ulang lewat instaloader.
 
-Kenapa perlu ini: login browser dan login program (instaloader) itu dua
-"konteks kepercayaan" terpisah di mata Instagram -- lolos checkpoint di
-browser tidak otomatis melonggarkan login instaloader, jadi checkpoint bisa
-muncul berulang terus. Cara ini "meminjam" sesi browser yang sudah
-terverifikasi, jadi tidak perlu checkpoint lagi.
-
-Syarat: sudah login & lolos verifikasi di browser (Chrome/Safari/Firefox)
-di Mac ini dengan akun dummy-nya.
-
-Cara pakai:
-    source venv/bin/activate
-    python3 import_browser_session.py chrome
-
-Browser yang didukung: chrome, chromium, brave, edge, firefox, safari,
-opera, opera_gx, vivaldi.
-
-Catatan macOS: mengambil cookie Chrome/Brave/Edge butuh akses Keychain --
-macOS akan menampilkan popup minta password login Mac kamu, itu normal.
-"""
 
 import sys
 from pathlib import Path
