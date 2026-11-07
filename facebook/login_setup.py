@@ -1,23 +1,4 @@
-"""
-Login manual satu kali ke akun Facebook dummy, simpan session (cookies) ke
-file lokal. Scraper scrape_facebook.py pakai file ini terus-menerus, jadi
-tidak perlu simpan password di mana pun setelah ini.
 
-Kenapa guest view tidak cukup: halaman Facebook klien (kpadkotamagelang)
-memblokir total visitor yang tidak login -- "Konten Ini Tidak Tersedia Saat
-Ini" muncul di post, permalink, timeline halaman, maupun versi mobile.
-Terverifikasi lewat halaman Facebook publik lain (NASA) yang masih bisa
-diintip separuh, sedangkan halaman klien benar-benar tertutup. Jadi perlu
-akun dummy yang login, sama seperti pola Instagram.
-
-Cara pakai:
-    source venv/bin/activate
-    python3 login_setup.py
-
-Browser Chrome asli bakal kebuka. Login manual seperti biasa (termasuk
-verifikasi tambahan kalau diminta). Setelah masuk dan bisa buka
-facebook.com/kpadkotamagelang, kembali ke terminal dan tekan Enter.
-"""
 
 import asyncio
 from pathlib import Path
