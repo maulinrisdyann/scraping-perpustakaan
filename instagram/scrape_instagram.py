@@ -1,17 +1,4 @@
-"""
-Scraper komentar Instagram (instaloader).
 
-Baca tracked_urls dengan source=instagram yang aktif, ambil semua komentar
-(termasuk balasan) dari tiap url postingan, upsert idempotent ke MySQL
-(kunci: id komentar asli dari Instagram).
-
-Butuh session login (lihat login_setup.py) -- jalankan itu dulu sebelum
-script ini kalau belum pernah / session sudah expired.
-
-Jalankan:
-    source venv/bin/activate
-    python3 scrape_instagram.py
-"""
 
 import os
 import re
