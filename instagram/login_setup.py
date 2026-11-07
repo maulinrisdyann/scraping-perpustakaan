@@ -1,20 +1,4 @@
-"""
-Login manual satu kali ke akun Instagram dummy, simpan session ke file lokal.
-Scraper scrape_instagram.py pakai file ini terus-menerus, jadi tidak perlu
-simpan password di mana pun setelah ini.
 
-Cara pakai:
-    source venv/bin/activate
-    python3 login_setup.py
-
-Nanti diminta username & password lewat terminal (bukan dikirim ke mana pun
-selain langsung ke Instagram). Kalau Instagram minta kode 2FA (email/SMS),
-tinggal masukkan juga di terminal yang sama.
-
-Kalau muncul error soal "checkpoint"/"suspicious login": buka aplikasi
-Instagram atau email akun dummy itu, approve/verifikasi login-nya secara
-manual, baru jalankan ulang script ini.
-"""
 
 import getpass
 from pathlib import Path
