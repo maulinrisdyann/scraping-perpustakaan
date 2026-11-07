@@ -1,30 +1,4 @@
-"""
-Scraper komentar Facebook (Playwright, guest view TIDAK cukup).
 
-Halaman Facebook klien (kpadkotamagelang) memblokir total visitor yang
-tidak login -- "Konten Ini Tidak Tersedia Saat Ini" muncul di post,
-permalink, timeline halaman, maupun versi mobile. Jadi wajib pakai session
-login (lihat login_setup.py) sebelum scraper ini bisa jalan.
-
-Pendekatan selector: Facebook memakai class name CSS ter-obfuscate
-(berubah tiap deploy), jadi scraper ini berpegang ke `role`/`aria-label`
-yang jauh lebih stabil -- sama seperti scraper Google Maps di Fase 1.
-    - Container komentar & reply: div[role="article"][aria-label^="Comment by "]
-      atau [aria-label^="Reply by "]
-    - Teks komentar: div[dir="auto"] pertama di dalam container
-    - ID unik: parameter comment_id (base64) dari href link penulis
-    - Tanggal absolut: aria-label link waktu singkat ("1w", "3d", dst)
-
-Butuh session login (lihat login_setup.py) -- jalankan itu dulu sebelum
-script ini kalau belum pernah / session sudah expired.
-
-Kalau terjadi captcha/blocked/error tak terduga: dicatat ke scrape_logs
-dengan status failed, TIDAK menghentikan proses url tracked lainnya.
-
-Jalankan:
-    source venv/bin/activate
-    python3 scrape_facebook.py
-"""
 
 import os
 import re
